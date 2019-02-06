@@ -76,4 +76,18 @@ We appropriately pulled in our `funnies` package and called it based on how the 
 
 If you look at your package folder now, you may notice it looks a little different. Node has probably created a `node_modules` folder, which is where it stores all of the dependencies for your program, and their dependencies. When we installed `funnies`, we didn't just get `funnies` in our `node_modules` folder, we also got other modules, like `lodash`, `dom-helpers`, and `js-tokens`. This is because `funnies` has those modules set as dependencies for itself. NPM then went ahead and downloaded them and manages those for `funnies` so you don't have to. Say, for example, that the developer of `funnies` was using version 1.2.3 of `lodash` instead of version 2.0.0. Instead of having to download and install version 1.2.3 of `lodash` yourself, NPM has automatically downloaded it and will keep it at version 1.2.3, unless you update `funnies`, and the developer of `funnies` specifies in that update that he is now using `lodash` 2.0.0.
 
-Node has also created a `package-lock.json` file. This package lock file is what keeps the information of what versions of packages you're using. Because of this file, you don't need to keep track of your `node_modules` file.
+Node has also created a `package-lock.json` file. This package lock file is what keeps the information of what versions of packages you're using. Because of this file, you don't need to keep track of your `node_modules` folder. If you look at this file, you'd see a lot of json, grouped around the different packages:
+
+```json
+"funnies": {
+  "version": "2.0.0",
+  "resolved": "https://registry.npmjs.org/funnies-2.0.0",
+  "integrity": "sha1-tz3mdRuPjLFXje8CKOPuwXuqIUE=",
+  "requires": {
+    "lodash": "^4.13.1",
+    "react-addons-css-transition-group": "^15.1.0"
+  }
+}
+```
+
+This is where NPM tracks each version of each dependency and it's dependencies. The same goes for the "Sub-dependencies" required by this one, and so on until the last package no longer has any dependencies. Because of this `package-lock` file, you could delete any part of or your entire `node_modules` file, and recover it using NPM. If you were to do this, at first your app would not run. Running `npm install` will use your lock file to recreate the exact `node_modules` file that you had before to make your program run. Because of this, you should not add your `node_modules` file to your Git repository. Whenever you want to run your program on a new machine, you should run `npm install` instead of downloading the `node_modules` file. To make sure you don't add it to your git repository and waste time and server space, you can create a `.gitignore` file within your repository and add `node_modules/` to it. Git will completely ignore the folder from then on.
