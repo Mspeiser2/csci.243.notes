@@ -18,7 +18,7 @@ console.log("Hello World");
 ```
 
 ### Using multiple Node files
-Normally, your document would pull together all of your node files so that they are in the same ###scope###. But, assuming 
+Normally, your document would pull together all of your node files so that they are in the same ___scope___. But, assuming 
 that your `index.js` is your top level file, there are ways to access other Node files. This is done in a few steps:
 
 1. Expose the parts of the Node file you want to access elsewhere.
