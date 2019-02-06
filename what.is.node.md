@@ -13,7 +13,7 @@ Running `node index.js` from a console will run your `index.js` file. For exampl
 ```
 file: index.js
 ```
-```
+```javascript
 console.log("Hello World");
 ```
 
@@ -26,7 +26,7 @@ To make this happen, you can create a ___module___ usually called `module.export
 ```
 file: funcs.js
 ```
-```
+```javascript
 function add(x,y)
 {
     return x+y;
@@ -54,11 +54,11 @@ accessible, but not `mult()`.
 ```
 file: index.js
 ```
-```
+```javascript
 let funcs = require('./funcs.js');
 ```
 This is functionally the same as:
-```
+```javascript
 funcs = {
     add : function(x,y) {
         return x+y;
@@ -75,7 +75,7 @@ You can access these functions easily using dot notation:
 ```
 file: index.js
 ```
-```
+```javascript
 let funcs = require('./funcs.js');
 
 console.log(funcs.add(5,3));
@@ -85,7 +85,7 @@ This would correctly output an 8 to the console.
 ```
 file: index.js
 ```
-```
+```javascript
 let funcs = require('./funcs.js');
 
 console.log(funcs.sub(5,3));
@@ -95,7 +95,7 @@ This would correctly output a 2 to the console.
 ```
 file: index.js
 ```
-```
+```javascript
 let funcs = require('./funcs.js');
 
 console.log(funcs.mult(5,3));
@@ -107,13 +107,13 @@ so we don't have access to it in `index.js`.
 Node provides modules that are considered ___core___, which means they're all built in and you can easily access them. One 
 common module is `queryString`, which deals with URL encoded data that you will receive from clients. Core modules can be used 
 as such:
-```
+```javascript
 let qs = require('querystring'); //This pulls the querystring Node module in for use
 
 console.log(qs.parse("first=Andrew&last=Besmer&message=Hi%20there")); //This is using querystring to process URL encoded data
 ```
 Note that because we used `let qs = require('querystring');`, whenever we want to use `querystring` in this file, we would 
 call it using `qs` and not `querystring`, as above. This would output:
-```
+```javascript
 [Object: null prototype] { first: 'Andrew', last: 'Besmer', message: 'Hi there' }
 ```
