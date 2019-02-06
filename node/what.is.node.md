@@ -10,9 +10,9 @@ You can start with a file named ___index.js___ but you don't have to, it's just 
 
 Running `node index.js` from a console will run your `index.js` file. For example, this is all the code necessary to put in a
 `index.js` file to get a "Hello World" output:
-```
-file: index.js
-```
+
+`file: index.js`
+
 ```javascript
 console.log("Hello World");
 ```
@@ -23,9 +23,9 @@ that your `index.js` is your top level file, there are ways to access other Node
 
 1. Expose the parts of the Node file you want to access elsewhere.
 To make this happen, you can create a ___module___ usually called `module.exports`. This can be done as follows:
-```
-file: funcs.js
-```
+
+`file: funcs.js`
+
 
 ```javascript
 function add(x,y)
@@ -52,9 +52,8 @@ This makes anything put into the exports accessible outside of this file. In thi
 accessible, but not `mult()`.
 
 2. Pull that data in using a `require()` statement.
-```
-file: index.js
-```
+
+`file: index.js`
 ```javascript
 let funcs = require('./funcs.js');
 ```
@@ -73,9 +72,8 @@ Except you don't have to have the functions in `index.js`, they're stored in `fu
 
 ## Using these functions
 You can access these functions easily using dot notation:
-```
-file: index.js
-```
+
+`file: index.js`
 ```javascript
 let funcs = require('./funcs.js');
 
@@ -83,9 +81,9 @@ console.log(funcs.add(5,3));
 ```
 This would correctly output an 8 to the console.
 
-```
-file: index.js
-```
+
+`file: index.js`
+
 ```javascript
 let funcs = require('./funcs.js');
 
@@ -93,9 +91,8 @@ console.log(funcs.sub(5,3));
 ```
 This would correctly output a 2 to the console.
 
-```
-file: index.js
-```
+`file: index.js`
+
 ```javascript
 let funcs = require('./funcs.js');
 
