@@ -14,7 +14,7 @@ The following commands are the ones you'll probably use most frequently:
 
  The initializer will first ask for a package name, which you can make whatever you'd like. It will then ask for a version number which you can decide for yourself. You can then enter a description for your program. The ___entry point___ is where your program's starting Javascript file is, usually `index.js` but you can change this to whatever you made your starting file. The test command and git repository are both optional, but helpful for testing and versioning. Keywords are used if you plan on sharing this package with others, so that they can search for and find it. The author is you or whatever company you're working for. License is whatever license you'd like to include with your software. The initializer will then confirm with you what information you entered before it writes it to your `package.json`. You can look over this information and then press enter to confirm. A typical `package.json` file would look like this:
 
- ```json
+ ```Json
 {
   "name": "csci243",
   "version": "0.0.1",
